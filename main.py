@@ -29,14 +29,16 @@ def getMyWifeSelection():
     :return: 名字列表
     """
     name_list = []
-    five_hang_mu = ['若', '蕴', '栩', '茗', '吟', '蔚', '柠']
-    five_hang_huo = ['憬', '炯', '尔', '恬', '粼', '燃']
+    five_hang_jin = ['夕', '千', '仁', '兮', '氏', '少', '世',
+    '生','申','正','臣','守','寺','存','丞','旬','七','孜','成',
+    '秀','伭']
+    five_hang_shui = ['凡','弘','妙','孝','泫','渊']
     # 组合火和木的喜欢的名字 结果：廖若尔,90  廖若粼,90
-    for mid in five_hang_mu:
-        for last in five_hang_huo:
+    for mid in five_hang_jin:
+        for last in five_hang_shui:
             name_list.append(LAST_NAME + mid + last)
-    for mid in five_hang_huo:
-        for last in five_hang_mu:
+    for mid in five_hang_jin:
+        for last in five_hang_shui:
             name_list.append(LAST_NAME + mid + last)
     print('老婆选的待测试名字列表： ', name_list)
     return name_list
