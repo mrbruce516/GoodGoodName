@@ -79,7 +79,7 @@ def getHtml(url, req_params=None, req_headers=None):
         req_params = {}
 
     try:
-        common_params = dict(timeout=5, headers=req_headers)
+        common_params = dict(timeout=30, headers=req_headers)
         if req_params and req_headers:
             r = requests.get(url, params=req_params, **common_params)
         else:

@@ -2,6 +2,7 @@
 # -*-coding:utf-8-*-
 __author__ = 'HaoHao de Father'
 import random
+import sys
 import traceback
 from collections import defaultdict
 from conf import config, constants
@@ -19,6 +20,11 @@ g_selected_write_dict = {
     '金': w.jin_dict,
     '土': w.tu_dict
 }
+
+if config.LAST_NAME not in utils.FULL_WORD_COUNT_DICT:
+    print('Oops! {0} doesnot found in dictionary.Try to search your word:{0} on web: http://xm.99166.com/wxhz/ , '
+          'and add to full_wuxing_dict.py'.format(config.LAST_NAME))
+    sys.exit(0)
 g_last_name_write_num = utils.FULL_WORD_COUNT_DICT[config.LAST_NAME]
 
 
@@ -29,16 +35,14 @@ def getMyWifeSelection():
     :return: 名字列表
     """
     name_list = []
-    five_hang_jin = ['夕', '千', '仁', '兮', '氏', '少', '世',
-    '生','申','正','臣','守','寺','存','丞','旬','七','孜','成',
-    '秀','伭']
-    five_hang_shui = ['凡','弘','妙','孝','泫','渊']
+    five_hang_mu = ['若', '蕴', '栩', '茗', '吟', '蔚', '柠']
+    five_hang_huo = ['憬', '炯', '尔', '恬', '粼', '燃']
     # 组合火和木的喜欢的名字 结果：廖若尔,90  廖若粼,90
-    for mid in five_hang_jin:
-        for last in five_hang_shui:
+    for mid in five_hang_mu:
+        for last in five_hang_huo:
             name_list.append(LAST_NAME + mid + last)
-    for mid in five_hang_jin:
-        for last in five_hang_shui:
+    for mid in five_hang_huo:
+        for last in five_hang_mu:
             name_list.append(LAST_NAME + mid + last)
     print('老婆选的待测试名字列表： ', name_list)
     return name_list
